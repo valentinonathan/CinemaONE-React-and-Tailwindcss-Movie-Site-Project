@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { Search } from 'lucide-react'
+import Movies from './content-pages/Movies'
 import "./index.css"
 
 function App() {
 
   return (
     <div className="bg-gradient-to-b from-[#B65B00] from-0% to-[#502800] to-17% w-full min-h-screen">
-     <header className="flex justify-between bg-[#FF7F00]/35 p-5">
+     <header className="flex justify-between bg-[#FF7F00]/35 p-5 sticky top-0 z-50">
       <div>
         <h1 className="text-white text-3xl font-bold">CinemaONE</h1>
       </div>
@@ -21,11 +22,16 @@ function App() {
       </div>
     </header>
     <main className="flex">
-      <aside className='min-h-screen min-w-70 bg-[#3A1D00]/60'>
-
+      <aside className="h-[calc(100vh-76px)] bg-[#3A1D00]/60 flex flex-col pl-5 pt-3 pr-20 sticky top-[76px] gap-3">
+      <div>
+        <a className="text-white text-xl font-semibold">Dicover</a>
+      </div>
+      <div className="text-sm flex flex-col gap-2 ml-3">
+        <a className="text-white">Fictional</a>
+      </div>
       </aside>
       <section>
-
+        <Movies />
       </section>
     </main>
     </div>
