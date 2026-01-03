@@ -1,7 +1,7 @@
 function MovieCard() {
     return(
-        <div className="w-[260px] h-[154px] bg-blue-300">
-            <img className="w-[260px] h-[154px]" />
+        <div className="min-w-[260px] min-h-[146px] bg-gray-100/25">
+            <img className="object-cover" src="https://image.tmdb.org/t/p/w1280/iN41Ccw4DctL8npfmYg1j5Tr1eb.jpg"/>
         </div>
     );
 }
