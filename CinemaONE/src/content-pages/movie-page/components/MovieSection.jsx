@@ -6,7 +6,7 @@ import { getPopularMovie } from "../../../services/movie";
 
 function MovieSection(props) {
     const [index, setIndex] = useState(0);
-    const [movies, setMovies] = useState("");
+    const [movies, setMovies] = useState([]);
 
     useEffect(() => {
         async function movieAPIRequest() {
@@ -30,10 +30,10 @@ function MovieSection(props) {
                 {movies.map((m, i) => <MovieCard key={i} movie={m} />)}
             </div>
             <div onClick={handleDecrementIndex} className="h-[146px] absolute left-0 bottom-0 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity hover:bg-gradient-to-r from-black/60 to-transparent">
-                    <button><ChevronLeft /></button>
+                <button><ChevronLeft /></button>
             </div>
             <div onClick={handleIncrementIndex} className="h-[146px] absolute right-0 bottom-0 flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black/60 to-transparent">
-                    <button><ChevronRight /></button>
+                <button><ChevronRight /></button>
             </div>
         </section>
     );
