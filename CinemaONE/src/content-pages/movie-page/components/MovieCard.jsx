@@ -1,7 +1,9 @@
-function MovieCard() {
+import { baseURL } from "../../../services/movie";
+
+function MovieCard(props) {
     return(
-        <div className="min-w-[260px] min-h-[146px] bg-gray-100/25">
-            <img className="object-cover" src="https://image.tmdb.org/t/p/w1280/iN41Ccw4DctL8npfmYg1j5Tr1eb.jpg"/>
+        <div className="max-w-[260px] max-h-[146px] bg-gray-100/25 shrink-0">
+            <img className="object-cover" src={"https://image.tmdb.org/t/p/w1280/" + props.movie.backdrop_path}/>
         </div>
     );
 }
