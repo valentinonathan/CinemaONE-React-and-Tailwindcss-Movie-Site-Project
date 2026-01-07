@@ -1,17 +1,24 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Search } from 'lucide-react'
 import Movies from './content-pages/movie-page/Movies'
 import Aside from './components/Aside'
+import TV from './content-pages/movie-page/TV'
 import "./index.css"
+import { getGenreTV } from './services/tv'
 
 function App() {
 
   const [dataMovie, setDataMovie] = useState({genre:[]});
+  const [dataTV, setDataTV] = useState({genre:[]});
   const [pageSelector, setPageSelector] = useState({home: false, movie: true, tv: false});
 
   function callbackMovie(data) {
     setDataMovie(d => data);
   }
+  function callbackTV(data) {
+    setDataTV(d => data);
+  }
+  
   function handleHomeButton() {
     setPageSelector({home: true, movie: false, tv: false});
   }
@@ -39,14 +46,14 @@ function App() {
       </div>
     </header>
     <main className="flex h-[calc(100vh-76px)]">
-      <Aside pageSelector={pageSelector} dataMovie={dataMovie}/>
+      <Aside pageSelector={pageSelector} dataMovie={dataMovie} dataTV={dataTV}/>
       <section className="overflow-y-auto">
         {pageSelector.home 
           ? null
           : pageSelector.movie
             ? <Movies callbackMovie={callbackMovie}/>
             : pageSelector.tv 
-              ? null
+              ? <TV callbackTV={callbackTV}/>
               : null}
       </section>
     </main>
