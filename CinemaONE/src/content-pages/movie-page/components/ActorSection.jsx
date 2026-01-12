@@ -17,7 +17,7 @@ function ActorSection() {
     return(
         <section className="text-white flex flex-col gap-5 overflow-hidden">
             <h1 className="text-2xl font-semibold">Popular Actors</h1>
-            <div className="flex gap-2.5">
+            <div className="flex gap-5.5">
                 {actors.slice(0, 11).map(actor => (
                     <ActorCard key={actor.id} actor={actor} />
                 ))}
