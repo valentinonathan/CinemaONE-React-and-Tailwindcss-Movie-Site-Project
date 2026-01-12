@@ -2,7 +2,7 @@ import MovieCard from "./MovieCard";
 import { ChevronLeft } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getTV } from "../../../services/tv";
+import { getTV, getTVByGenre } from "../../../services/tv";
 import TVCard from "./TVCard";
 
 function TVSection(props) {
@@ -11,8 +11,13 @@ function TVSection(props) {
 
     useEffect(() => {
         async function tvAPIRequest() {
+            if (props.withGenre) {
+                const tvTemp = await getTVByGenre(props.genreID);
+                setTv(t => tvTemp);
+            } else {
                 const tvTemp = await getTV(props.tvListType);
                 setTv(t => tvTemp)
+            }
         }
         tvAPIRequest();
     }, []);
@@ -25,7 +30,7 @@ function TVSection(props) {
     }
 
     return(
-        <section className="relative text-white flex flex-col gap-5 w-full overflow-hidden">
+        <section id={props.genreID} className="relative text-white flex flex-col gap-5 w-full overflow-hidden">
             <h1 className="text-2xl font-semibold">{props.title}</h1>
             <div className="w-max flex gap-2 relative transition-transform duration-500 ease-out overflow-hidden" style={{transform: `translateX(-${(index * 268)}px)`}}>
                 {tv.map((t, i)=> <TVCard key={t.id} tv={t} />)} 

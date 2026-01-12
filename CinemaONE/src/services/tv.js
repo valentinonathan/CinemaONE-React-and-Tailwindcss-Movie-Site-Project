@@ -23,4 +23,15 @@ async function getGenreTV() {
     }
 }
 
-export { getTV, getGenreTV };
+async function getTVByGenre(genreID) {
+    const response = await fetch(baseURL + `discover/tv?api_key=${API_KEY}&with_genres=${genreID}`);
+    if (!response.ok) {
+        throw new Error("Cannot fetch data at");
+    } else {
+        const json = await response.json();
+        const results = json.results;
+        return results;
+    }
+}
+
+export { getTV, getGenreTV, getTVByGenre };
