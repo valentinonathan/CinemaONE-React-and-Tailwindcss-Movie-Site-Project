@@ -26,7 +26,7 @@ function Home() {
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex(i => i === 3 ? 0 : i + 1);
-        }, 3000);
+        }, 7000);
 
         return () => clearInterval(interval);
     }, []);
