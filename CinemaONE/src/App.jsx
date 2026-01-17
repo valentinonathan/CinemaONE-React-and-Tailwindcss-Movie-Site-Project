@@ -3,6 +3,7 @@ import { Search } from 'lucide-react'
 import Movies from './content-pages/movie-page/Movies'
 import Aside from './components/Aside'
 import TV from './content-pages/movie-page/TV'
+import Home from './content-pages/movie-page/Home'
 import "./index.css"
 import { getGenreTV } from './services/tv'
 
@@ -10,7 +11,7 @@ function App() {
 
   const [dataMovie, setDataMovie] = useState({genre:[]});
   const [dataTV, setDataTV] = useState({genre:[]});
-  const [pageSelector, setPageSelector] = useState({home: false, movie: true, tv: false});
+  const [pageSelector, setPageSelector] = useState({home: true, movie: false, tv: false});
 
   function callbackMovie(data) {
     setDataMovie(d => data);
@@ -18,7 +19,6 @@ function App() {
   function callbackTV(data) {
     setDataTV(d => data);
   }
-  
   function handleHomeButton() {
     setPageSelector({home: true, movie: false, tv: false});
   }
@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div className="bg-gradient-to-b from-[#B65B00] from-0% to-[#502800] to-17% w-full h-screen">
+    <div className="bg-gradient-to-b from-[#B65B00] from-0% to-[#502800] to-17% w-full h-screen overflow-hidden">
      <header className="flex justify-between bg-[#FF7F00]/35 p-5 sticky top-0 z-50">
       <div>
         <h1 className="text-white text-3xl font-bold hover:cursor-pointer hover:text-white/80">CinemaONE</h1>
@@ -45,11 +45,11 @@ function App() {
         <input type="search" placeholder="Search Movies and TV shows" className="focus:bg-[#D9D9D9]/25 focus:outline-none focus:text-sm text-sm text-white/80 bg-[#D9D9D9]/20 border border-2 border-white  rounded-xl min-h-7 min-w-45 placeholder:text-[85%] placeholder:text-white/60 pl-2 pb-1" />
       </div>
     </header>
-    <main className="flex h-[calc(100vh-76px)]">
+    <main className="flex h-[calc(100vh-76px)] w-full">
       <Aside pageSelector={pageSelector} dataMovie={dataMovie} dataTV={dataTV}/>
-      <section className="overflow-y-auto">
+      <section className="overflow-y-auto w-full">
         {pageSelector.home 
-          ? null
+          ? <Home />
           : pageSelector.movie
             ? <Movies callbackMovie={callbackMovie}/>
             : pageSelector.tv 
@@ -62,4 +62,3 @@ function App() {
 }
 
 export default App
-//Testahdiahdhsiud

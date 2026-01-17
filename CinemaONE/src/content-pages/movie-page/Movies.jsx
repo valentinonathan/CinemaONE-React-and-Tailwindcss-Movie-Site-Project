@@ -18,7 +18,7 @@ function Movies(props) {
     }, [])
 
     return (
-        <div className="pl-5 pt-5 pr-3 pb-8 flex flex-col gap-8">
+        <div className="pl-5 pt-5 pr-3 pb-8 flex flex-col gap-8 w-full">
             <MovieSection title="Now Playing" movieListType="now_playing"/>
             <ActorSection />
             <MovieSection title="Popular" movieListType="popular"/>
