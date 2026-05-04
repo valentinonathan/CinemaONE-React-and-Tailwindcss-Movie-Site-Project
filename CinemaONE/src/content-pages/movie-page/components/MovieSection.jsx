@@ -35,10 +35,10 @@ function MovieSection(props) {
             <div className="w-max flex gap-2 relative transition-transform duration-500 ease-out overflow-hidden" style={{transform: `translateX(-${(index * 268)}px)`}}>
                 {movies.map(m => <MovieCard key={m.id} movie={m} />)}
             </div>
-            <div onClick={handleDecrementIndex} className="h-[146px] absolute left-0 bottom-0 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity hover:bg-gradient-to-r from-black/60 to-transparent">
+            <div onClick={handleDecrementIndex} className="h-[146px] rounded-md absolute left-0 bottom-0 flex justify-center items-center opacity-0 hover:opacity-100 transition-opacity hover:bg-gradient-to-r from-black/60 to-transparent">
                 <button><ChevronLeft /></button>
             </div>
-            <div onClick={handleIncrementIndex} className="h-[146px] absolute right-0 bottom-0 flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black/60 to-transparent">
+            <div onClick={handleIncrementIndex} className="h-[146px] rounded-md absolute right-0 bottom-0 flex justify-center items-center opacity-0 hover:opacity-100 hover:bg-gradient-to-l from-black/60 to-transparent">
                 <button><ChevronRight /></button>
             </div>
         </section>
