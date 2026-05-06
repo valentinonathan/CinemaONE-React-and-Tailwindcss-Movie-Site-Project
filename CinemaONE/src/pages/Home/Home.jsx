@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMovie } from "../../services/movie";
-import MovieSection from "./components/MovieSection";
-import TVSection from "./components/TVSection";
+import MovieSection from "../Movies/MovieSection";
+import TVSection from "../TV/TVSection";
 import { getTV } from "../../services/tv";
 
 function Home() {

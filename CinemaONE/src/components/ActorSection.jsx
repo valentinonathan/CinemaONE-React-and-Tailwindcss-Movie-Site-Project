@@ -1,5 +1,5 @@
 import ActorCard from "./ActorCard";
-import { getPopularActors } from "../../../services/actor";
+import { getPopularActors } from "../services/actor";
 import { useEffect, useState } from "react";
 
 function ActorSection() {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TVSection from "./components/TVSection";
+import TVSection from "./TVSection";
 import { getGenreTV } from "../../services/tv";
 
 function TV(props) {
