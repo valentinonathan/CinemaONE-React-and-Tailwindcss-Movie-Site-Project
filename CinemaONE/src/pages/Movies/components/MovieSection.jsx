@@ -2,7 +2,7 @@ import MovieCard from "./MovieCard";
 import { ChevronLeft } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getMovie, getMovieByGenre } from "../../services/movie";
+import { getMovie, getMovieByGenre } from "../../../services/movie";
 
 function MovieSection(props) {
     const [index, setIndex] = useState(0);

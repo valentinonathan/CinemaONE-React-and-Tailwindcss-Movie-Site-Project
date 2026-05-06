@@ -1,5 +1,5 @@
 import ActorCard from "../../components/ActorCard";
-import MovieSection from "./MovieSection";
+import MovieSection from "./components/MovieSection";
 import ActorSection from "../../components/ActorSection";
 import { useEffect, useState } from "react";
 import { getGenre } from "../../services/movie";

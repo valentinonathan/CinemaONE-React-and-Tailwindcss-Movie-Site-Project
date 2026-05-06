@@ -1,8 +1,8 @@
-import MovieCard from "../Movies/MovieCard";
+import MovieCard from "../../Movies/components/MovieCard";
 import { ChevronLeft } from "lucide-react";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getTV, getTVByGenre } from "../../services/tv";
+import { getTV, getTVByGenre } from "../../../services/tv";
 import TVCard from "./TVCard";
 
 function TVSection(props) {

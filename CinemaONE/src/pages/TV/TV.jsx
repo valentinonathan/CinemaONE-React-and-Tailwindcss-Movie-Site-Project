@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import TVSection from "./TVSection";
+import TVSection from "./components/TVSection";
 import { getGenreTV } from "../../services/tv";
 import { useOutletContext } from "react-router-dom";
 
