@@ -6,6 +6,7 @@ import TV from './content-pages/movie-page/TV'
 import Home from './content-pages/movie-page/Home'
 import "./index.css"
 import { getGenreTV } from './services/tv'
+import MoviePage from './content-pages/movie-page/components/MoviePage'
 
 function App() {
 
