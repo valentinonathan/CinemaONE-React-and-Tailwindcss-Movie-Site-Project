@@ -7,13 +7,14 @@ import Home from '../pages/Home/Home'
 import "../index.css"
 import { getGenreTV } from '../services/tv'
 import MoviePage from '../pages/Movies/MoviePage'
-import { Outlet, Link } from "react-router-dom"
+import { Outlet, Link, useMatches } from "react-router-dom"
 
 function MainLayout() {
 
   const [dataMovie, setDataMovie] = useState({genre:[]});
   const [dataTV, setDataTV] = useState({genre:[]});
-  const [pageSelector, setPageSelector] = useState({home: true, movie: false, tv: false});
+
+  const pageSelector = useMatches()[1]?.handle?.aside;
 
   function callbackMovie(data) {
     setDataMovie(d => data);
@@ -21,15 +22,7 @@ function MainLayout() {
   function callbackTV(data) {
     setDataTV(d => data);
   }
-  function handleHomeButton() {
-    setPageSelector({home: true, movie: false, tv: false});
-  }
-  function handleMovieButton() {
-    setPageSelector({home: false, movie: true, tv: false});
-  }
-  function handleTVButton() {
-    setPageSelector({home: false, movie: false, tv: true});
-  }
+
 
   return (
     <div className="bg-gradient-to-b from-[#B65B00] from-0% to-[#502800] to-17% w-full h-screen overflow-hidden">
@@ -39,13 +32,13 @@ function MainLayout() {
       </div>
         <nav className="flex gap-10 justify-center items-center text-white font-bold">
           <Link to="/">
-            <button onClick={handleHomeButton} style={{color: pageSelector.home ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Home</button>
+            <button style={{color: pageSelector == "home" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Home</button>
           </Link>
           <Link to="/movies">
-            <button onClick={handleMovieButton} style={{color: pageSelector.movie ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Movies</button>
+            <button style={{color: pageSelector == "movies" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Movies</button>
           </Link>
           <Link to="/tv">
-            <button onClick={handleTVButton} style={{color: pageSelector.tv ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">TV</button>
+            <button style={{color: pageSelector == "tv" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">TV</button>
           </Link>        
         </nav>
       <div className="flex justify-center items-center gap-2">
@@ -56,15 +49,9 @@ function MainLayout() {
     <main className="flex h-[calc(100vh-76px)] w-full">
       <Aside pageSelector={pageSelector} dataMovie={dataMovie} dataTV={dataTV}/>
       <section className="overflow-y-auto w-full">
-        {/*pageSelector.home 
-          ? <Home />
-          : pageSelector.movie
-            ? <Movies callbackMovie={callbackMovie}/>
-            : pageSelector.tv 
-              ? <TV callbackTV={callbackTV}/>
-              : null*/}
+        {
         <Outlet context={{movie: callbackMovie, tv: callbackTV}} />
-        
+        }
       </section>
     </main>
     </div>
