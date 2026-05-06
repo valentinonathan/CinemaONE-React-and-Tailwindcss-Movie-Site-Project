@@ -50,7 +50,7 @@ function MainLayout() {
         </nav>
       <div className="flex justify-center items-center gap-2">
         <button> <Search className="text-white hover:text-white/80 hover:cursor-pointer"/> </button>
-        <input type="search" p  laceholder="Search Movies and TV shows" className="focus:bg-[#D9D9D9]/25 focus:outline-none focus:text-sm text-sm text-white/80 bg-[#D9D9D9]/20 border border-2 border-white  rounded-xl min-h-7 min-w-45 placeholder:text-[85%] placeholder:text-white/60 pl-2 pb-1" />
+        <input type="search" placeholder="Search Movies and TV shows" className="focus:bg-[#D9D9D9]/25 focus:outline-none focus:text-sm text-sm text-white/80 bg-[#D9D9D9]/20 border border-2 border-white  rounded-xl min-h-7 min-w-45 placeholder:text-[85%] placeholder:text-white/60 pl-2 pb-1" />
       </div>
     </header>
     <main className="flex h-[calc(100vh-76px)] w-full">
@@ -63,7 +63,7 @@ function MainLayout() {
             : pageSelector.tv 
               ? <TV callbackTV={callbackTV}/>
               : null*/}
-        <Outlet />
+        <Outlet context={{movie: callbackMovie, tv: callbackTV}} />
         
       </section>
     </main>

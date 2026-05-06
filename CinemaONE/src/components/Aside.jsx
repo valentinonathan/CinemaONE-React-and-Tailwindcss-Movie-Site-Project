@@ -1,11 +1,11 @@
-import { useEffect } from "react";
-import { useMatches } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useMatches, useOutletContext } from "react-router-dom";
 
 function Aside(props) {
     const matches = useMatches();
     const current = matches[1];
     const tab = current?.handle?.aside;
-    console.log(tab);
+
     if (tab == "home") {
         return (
             <aside className="h-[calc(100vh-76px)] bg-[#3A1D00]/60 flex flex-col pl-6 pt-4 pr-15 max-w-45 sticky left-0 top-0 gap-3">

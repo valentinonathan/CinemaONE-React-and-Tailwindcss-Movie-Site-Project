@@ -3,15 +3,17 @@ import MovieSection from "./MovieSection";
 import ActorSection from "../../components/ActorSection";
 import { useEffect, useState } from "react";
 import { getGenre } from "../../services/movie";
+import { useOutletContext } from "react-router-dom";
 
 function Movies(props) {
 
     const [genre, setGenre] = useState([]);
+    const outletContext = useOutletContext();
 
     useEffect(() => {
         async function genreRequest() {
             const genreTemp = await getGenre();
-            props.callbackMovie({genre: genreTemp});
+            outletContext.movie({genre: genreTemp});
             setGenre(g => genreTemp);
         }
         genreRequest();

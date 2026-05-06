@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import TVSection from "./TVSection";
 import { getGenreTV } from "../../services/tv";
+import { useOutletContext } from "react-router-dom";
 
 function TV(props) {
 
     const [genre, setGenre] = useState([])
+    const outletContext = useOutletContext();
 
     useEffect(() => {
         async function genreRequest() {
             const genreTemp = await getGenreTV();
             setGenre(g => genreTemp);
-            props.callbackTV({genre: genreTemp});
+            outletContext.tv({genre: genreTemp});
         }
         genreRequest();
     }, [])
