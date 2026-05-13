@@ -11,6 +11,17 @@ async function getMovie(movieListType) {
         return results;
     }
 }
+
+async function getMovieDetails(movieId) {
+    const response = await fetch(baseURL + `movie/${movieId}?api_key=9540bb593401c1f6b8ee464243b6d0fa`);
+    if (!response.ok) {
+        throw new Error("Can't fetch data at");
+    } else {
+        const json = await response.json();
+        return json;
+    }
+}
+
 async function getGenre() {
     const response = await fetch(baseURL + `genre/movie/list?api_key=${API_KEY}`);
     if (!response.ok) {
@@ -32,4 +43,4 @@ async function getMovieByGenre(genreID) {
     }
 }
 
-export { getMovie, getGenre, getMovieByGenre, baseURL };
+export { getMovie, getGenre, getMovieByGenre, getMovieDetails, baseURL };
