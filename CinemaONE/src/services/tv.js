@@ -12,6 +12,16 @@ async function getTV(tvListType) {
     }
 }
 
+async function getTVDetails(tvId) {
+    const response = await fetch(baseURL + `tv/${tvId}?api_key=9540bb593401c1f6b8ee464243b6d0fa`);
+    if (!response.ok) {
+        throw new Error("Can't fetch data at");
+    } else {
+        const json = await response.json();
+        return json;
+    }
+}
+
 async function getGenreTV() {
     const response = await fetch(baseURL + `genre/tv/list?api_key=${API_KEY}`);
     if (!response.ok) {
@@ -34,4 +44,4 @@ async function getTVByGenre(genreID) {
     }
 }
 
-export { getTV, getGenreTV, getTVByGenre };
+export { getTV, getGenreTV, getTVByGenre, getTVDetails };

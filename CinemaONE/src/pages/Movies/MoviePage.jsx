@@ -42,7 +42,7 @@ function MoviePage(props) {
         </div>
 
         <div>
-            <p className="text-white pl-4">{movieDetails?.overview}</p>
+            <p className="text-white pl-5 pr-2">{movieDetails?.overview}</p>
         </div>
     </div>
     </>

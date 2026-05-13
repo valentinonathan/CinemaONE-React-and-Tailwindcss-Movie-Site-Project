@@ -35,10 +35,10 @@ function MainLayout() {
             <button style={{color: pageSelector == "home" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Home</button>
           </Link>
           <Link to="/movies">
-            <button style={{color: pageSelector == "movies" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Movies</button>
+            <button style={{color: pageSelector == "movies" || pageSelector == "moviePage" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">Movies</button>
           </Link>
           <Link to="/tv">
-            <button style={{color: pageSelector == "tv" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">TV</button>
+            <button style={{color: pageSelector == "tv" || pageSelector == "tvPage" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">TV</button>
           </Link>        
         </nav>
       <div className="flex justify-center items-center gap-2">
