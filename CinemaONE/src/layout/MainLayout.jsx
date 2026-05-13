@@ -28,7 +28,9 @@ function MainLayout() {
     <div className="bg-gradient-to-b from-[#B65B00] from-0% to-[#502800] to-17% w-full h-screen overflow-hidden">
      <header className="flex justify-between bg-[#FF7F00]/35 p-5 sticky top-0 z-50">
       <div>
-        <h1 className="text-white text-3xl font-bold hover:cursor-pointer hover:text-white/80">CinemaONE</h1>
+        <Link to="/">
+          <h1 className="text-white text-3xl font-bold hover:cursor-pointer hover:text-white/80">CinemaONE</h1>
+        </Link>
       </div>
         <nav className="flex gap-10 justify-center items-center text-white font-bold">
           <Link to="/">
