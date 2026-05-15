@@ -13,8 +13,25 @@ function MainLayout() {
 
   const [dataMovie, setDataMovie] = useState({genre:[]});
   const [dataTV, setDataTV] = useState({genre:[]});
+  const [searchBool, setSearchBool] = useState(false);
 
   const pageSelector = useMatches()[1]?.handle?.aside;
+
+  function handleSearchChange(e) {
+    if (e.target.value.length > 0) {
+      setSearchBool(true);
+    } else {
+      setSearchBool(false);
+    }
+  }
+  function handleSearchBlur(e) {
+    setSearchBool(false);
+  }
+  function handleSearchFocus(e) {
+    if (e.target.value.length > 0) {
+      setSearchBool(true);
+    }
+  }
 
   function callbackMovie(data) {
     setDataMovie(d => data);
@@ -43,9 +60,10 @@ function MainLayout() {
             <button style={{color: pageSelector == "tv" || pageSelector == "tvPage" ? "white" : "rgba(255, 255, 255, 0.5)"}} className="hover:cursor-pointer">TV</button>
           </Link>        
         </nav>
-      <div className="flex justify-center items-center gap-2">
+      <div className="flex relative justify-center items-center gap-2">
         <button> <Search className="text-white hover:text-white/80 hover:cursor-pointer"/> </button>
-        <input type="search" placeholder="Search Movies and TV shows" className="focus:bg-[#D9D9D9]/25 focus:outline-none focus:text-sm text-sm text-white/80 bg-[#D9D9D9]/20 border border-2 border-white  rounded-xl min-h-7 min-w-45 placeholder:text-[85%] placeholder:text-white/60 pl-2 pb-1" />
+        <input onChange={e => handleSearchChange(e)} onFocus={e => handleSearchFocus(e)} onBlur={e => handleSearchBlur(e)} type="search" placeholder="Search Movies and TV shows" className="focus:bg-[#D9D9D9]/25 focus:outline-none focus:text-sm text-sm text-white/80 bg-[#D9D9D9]/20 border border-2 border-white  rounded-xl min-h-7 min-w-45 placeholder:text-[85%] placeholder:text-white/60 pl-2 pb-1" />
+        <div className='bg-[rgba(182,91,0,0.9)] rounded-md min-h-75 max-h-75 min-w-full max-w-full backdrop-blur-sm shadow-md shadow-black/25 absolute top-10 left-0' style={searchBool ? {display:"block"} : {display:"none"}}></div>
       </div>
     </header>
     <main className="flex h-[calc(100vh-76px)] w-full">
