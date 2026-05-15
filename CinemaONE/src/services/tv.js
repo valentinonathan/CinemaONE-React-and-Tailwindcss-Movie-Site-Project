@@ -1,5 +1,5 @@
 import { baseURL } from "./movie";
-const API_KEY = "9540bb593401c1f6b8ee464243b6d0fa"
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 async function getTV(tvListType) {
     const response = await fetch(baseURL + `tv/${tvListType}?api_key=${API_KEY}`);
@@ -13,7 +13,7 @@ async function getTV(tvListType) {
 }
 
 async function getTVDetails(tvId) {
-    const response = await fetch(baseURL + `tv/${tvId}?api_key=9540bb593401c1f6b8ee464243b6d0fa`);
+    const response = await fetch(baseURL + `tv/${tvId}?api_key=${API_KEY}`);
     if (!response.ok) {
         throw new Error("Can't fetch data at");
     } else {

@@ -1,4 +1,4 @@
-const API_KEY = "9540bb593401c1f6b8ee464243b6d0fa";
+const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 async function search(query) {
     const encodedQuery = encodeURIComponent(query);
