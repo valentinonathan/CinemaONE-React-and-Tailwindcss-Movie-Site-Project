@@ -14,7 +14,11 @@ function MoviePage(props) {
             setMovieDetails(b => movieDetailsTemp);
         }
         movieDetailsAPIRequest(movieId);
-    }, []);
+
+        return () => {
+            setMovieDetails([]);
+        }
+    }, [movieId]);
 
     return (
     <>

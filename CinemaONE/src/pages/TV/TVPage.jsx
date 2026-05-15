@@ -12,10 +12,13 @@ function TVPage(props) {
         async function tvDetailsAPIRequest(tvId) {
             const tvDetailsTemp = await getTVDetails(tvId);
             setTvDetails(t => tvDetailsTemp);
-            console.log(tvDetailsTemp);
         }
         tvDetailsAPIRequest(tvId);
-    }, []);
+
+        return () => {
+            setTvDetails([]);
+        }
+    }, [tvId]);
 
     return (
     <>
